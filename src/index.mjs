@@ -7,7 +7,7 @@ var previousAudio;
 
 export function speechOne(text, key, language, onPlay, onNext) {
   if (synthesizer == null) {
-    configAzureSpeechApi(key);
+    configAzureSpeechApiOnly(key);
   }
 
   synthesizer.speakSsmlAsync(
@@ -53,6 +53,13 @@ export let configAzureSpeechApi = (key, language) => {
   speechConfig.speechSynthesisVoiceName = pickVoice(language);
   const audioConfig = SpeechSDK.AudioConfig.fromDefaultSpeakerOutput();
   synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, audioConfig);
+};
+
+export let configAzureSpeechApiOnly = (key, language) => {
+  const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(key, "eastasia");
+  speechConfig.speechSynthesisLanguage = language; // For example, "de-DE"
+  speechConfig.speechSynthesisVoiceName = pickVoice(language);
+  synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, null);
 };
 
 var previousContent = "";
