@@ -1,0 +1,15 @@
+{
+  "name": "@memkits/azure-speech-util",
+  "version": "0.0.1",
+  "description": "personal wrapper for speech API",
+  "main": "./src/index.mjs",
+  "repository": "git@github.com:Memkits/azure-speech-util.git",
+  "author": "tiye <jiyinyiyong@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^2.9.6"
+  },
+  "dependencies": {
+    "microsoft-cognitiveservices-speech-sdk": "^1.21.0"
+  }
+}
