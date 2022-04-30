@@ -3,9 +3,13 @@
 ### Usage:
 
 ```js
-import { speechOnce, speechQueue } from "@memkits/azure-speech-util";
+import {
+  speechOne,
+  speechQueue,
+  nativeSpeechOne,
+} from "@memkits/azure-speech-util";
 
-speechOnce(
+speechOne(
   "内容",
   "zh-CN",
   KEY,
@@ -20,6 +24,8 @@ speechOnce(
 speechQueue("内容", "en-US", KEY, () => {
   console.log("play");
 });
+
+nativeSpeechOne("内容", "en-US");
 ```
 
 ### License

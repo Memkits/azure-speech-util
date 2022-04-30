@@ -110,3 +110,14 @@ let pickVoice = (language) => {
       return null;
   }
 };
+
+export let nativeSpeechOne = (content, language) => {
+  // var msg = new SpeechSynthesisUtterance();
+  // msg.text = content;
+  // window.speechSynthesis.speak(msg);
+
+  var synth = window.speechSynthesis;
+  var msg = new SpeechSynthesisUtterance(content);
+  msg.lang = language;
+  synth.speak(msg);
+};
