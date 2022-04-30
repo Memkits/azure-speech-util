@@ -6,8 +6,11 @@ var synthesizer;
 var previousAudio;
 
 export function speechOne(text, key, language, onPlay, onNext) {
+  if (key == null) {
+    throw new Error("key is required");
+  }
   if (synthesizer == null) {
-    configAzureSpeechApiOnly(key);
+    configAzureSpeechApiOnly(key, language);
   }
 
   synthesizer.speakSsmlAsync(
@@ -64,6 +67,9 @@ export let configAzureSpeechApiOnly = (key, language) => {
 
 var previousContent = "";
 export function speechQueue(text, key, lang, onPlay) {
+  if (key == null) {
+    throw new Error("key is required");
+  }
   if (text === previousContent) {
     // accidental click
     return;
@@ -107,17 +113,15 @@ let pickVoice = (language) => {
     case "en-US":
       return "en-US-SaraNeural";
     default:
+      console.error("unknown language:", language);
       return null;
   }
 };
 
 export let nativeSpeechOne = (content, language) => {
-  // var msg = new SpeechSynthesisUtterance();
-  // msg.text = content;
-  // window.speechSynthesis.speak(msg);
-
-  var synth = window.speechSynthesis;
+  window.speechSynthesis.cancel();
   var msg = new SpeechSynthesisUtterance(content);
+  msg.rate = 1.1;
   msg.lang = language;
-  synth.speak(msg);
+  window.speechSynthesis.speak(msg);
 };
