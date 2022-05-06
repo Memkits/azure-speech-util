@@ -1,9 +1,10 @@
-import { speechOne, speechQueue } from "../src/index.mjs";
+import { speechOne, speechQueue, nativeSpeechOne } from "../src/index.mjs";
 
 window.onload = () => {
   let one = document.getElementById("one");
   let queue = document.getElementById("queue");
   let content = document.getElementById("content");
+  let native = document.getElementById("native");
 
   one.onclick = () => {
     speechOne(
@@ -28,5 +29,9 @@ window.onload = () => {
         console.log("ended");
       }
     );
+  };
+
+  native.onclick = () => {
+    nativeSpeechOne(content.value, "zh-CN");
   };
 };

@@ -1,6 +1,6 @@
 {
   "name": "@memkits/azure-speech-util",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "personal wrapper for speech API",
   "main": "./src/index.mjs",
   "repository": "git@github.com:Memkits/azure-speech-util.git",
