@@ -1,6 +1,6 @@
 import * as bundle from "microsoft-cognitiveservices-speech-sdk/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle";
 
-bundle;
+console.info("loaded SpeechSDK", bundle);
 
 var synthesizer;
 var previousAudio;
